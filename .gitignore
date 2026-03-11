@@ -29,3 +29,7 @@ dist/
 # --- OS files ---
 .DS_Store
 Thumbs.db
+
+# --- Example Lists ---
+widgets_list.py
+
