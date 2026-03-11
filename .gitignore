@@ -1,0 +1,31 @@
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# --- Virtual environment ---
+.venv/
+
+# --- VS Code ---
+.vscode/
+
+# --- Qt / PySide6 ---
+*.qrc
+*.pyproject
+*.qmlc
+*.jsc
+*.qtds
+*.qtcreator*
+*.pro.user
+*.pro.user.*
+*.qmake.stash
+
+# --- Build / Dist ---
+build/
+dist/
+*.spec
+
+# --- OS files ---
+.DS_Store
+Thumbs.db
