@@ -35,12 +35,12 @@ class MainWindow(QMainWindow):
 
     def return_pressed(self):
         print("Return pressed!")
-        self.centralWidget().setText("BOOM!")
+        self.centralWidget().setText("BOOM!")  #type: ignore
 
 
     def selection_changed(self):
         print("Selection changed")
-        print(self.centralWidget().selectedText())
+        print(self.centralWidget().selectedText())  #type: ignore
 
 
     def text_changed(self, s):
