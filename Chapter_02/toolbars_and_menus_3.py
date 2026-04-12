@@ -5,7 +5,7 @@
 
 # coded along by Joe Ruiz
 # Chapter 2 - Basic PySide6 Features
-# page 86
+# page 90
 
 # 2.5 - Actions, Toolbars & Menus
 # toolbars_and_menus_3.py
