@@ -7,7 +7,7 @@
 # Chapter 2 - Basic PySide6 Features
 # page 103
 
-# 2.5 - Actions, Toolbars & Menus - add a Keyboard shorcut by pass setKeySequence()
+# 2.5 - Actions, Toolbars & Menus - add a Keyboard shorcut by passing setKeySequence()
 # toolbars_and_menus_end.py
 
 # Import modules
