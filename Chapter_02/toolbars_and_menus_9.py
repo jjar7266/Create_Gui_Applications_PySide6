@@ -5,7 +5,7 @@
 
 # coded along by Joe Ruiz
 # Chapter 2 - Basic PySide6 Features
-# page 99
+# page 101
 
 # 2.5 - Actions, Toolbars & Menus - add a submenu
 # toolbars_and_menus_9.py
