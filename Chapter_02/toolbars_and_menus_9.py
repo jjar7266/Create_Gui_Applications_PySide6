@@ -11,7 +11,6 @@
 # toolbars_and_menus_9.py
 
 # Import modules
-# Import modules
 import os
 import sys
 
