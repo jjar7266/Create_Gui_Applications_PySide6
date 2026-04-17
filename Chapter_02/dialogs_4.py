@@ -18,8 +18,7 @@
 #   - resize(), setMinimumWidth(), etc. have NO effect.
 #
 # This is normal behavior on Windows and not a bug in your code.
-# The book's screenshot was taken on a system where Qt draws the dialog.
-# We keep the example exactly as written in the book.
+
 
 # Import modules
 import sys
