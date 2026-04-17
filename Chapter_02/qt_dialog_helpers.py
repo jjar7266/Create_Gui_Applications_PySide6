@@ -2,6 +2,13 @@
 # Utility helpers for forcing Qt-style dialogs on Windows
 # so titles and window frames always appear.
 
+# When to use this helper:
+# - If Windows hides the title bar on QMessageBox
+# - If the dialog looks native instead of Qt-style
+# - If you want consistent behavior across OSes
+# - If you want dialogs to match the book's screenshots
+
+
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QMessageBox
 
