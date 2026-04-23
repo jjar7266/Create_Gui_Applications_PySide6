@@ -6,7 +6,7 @@
 # Chapter 2 — Basic PySide6 Features
 # Page 163
 #
-# 2.8 Events - QMouseEvent object
+# 2.8 Events - QMouseEvent button handling
 
 #  example: the following allows us to respond differently
 #  to a left, right or middle click on the window
@@ -29,7 +29,7 @@ class MainWindow(QMainWindow):
         self.label = QLabel("Click in this window")
         self.setCentralWidget(self.label)
         self.setGeometry(100, 100, 280, 80)  # Added: not in the book
-        
+
 
     def mousePressEvent(self, e):
         if e.button() == Qt.MouseButton.LeftButton:
