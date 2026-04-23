@@ -6,7 +6,7 @@
 # Chapter 2 — Basic PySide6 Features
 # Page 165
 #
-# 2.8 Events - QContextMenuEvent
+# 2.8 Events - QContextMenuEvent (custom context menu)
 
 # Import modules
 import sys
