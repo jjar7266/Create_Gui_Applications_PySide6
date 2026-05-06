@@ -30,7 +30,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.todoView = QListView(self.centralwidget)
         self.todoView.setObjectName(u"todoView")
-        self.todoView.setSelectionMode(QAbstractItemView.SingleSelection)
+        self.todoView.setSelectionMode(QAbstractItemView.SingleSelection)  # type: ignore
 
         self.verticalLayout.addWidget(self.todoView)
 
