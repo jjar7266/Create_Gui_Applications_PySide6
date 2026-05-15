@@ -38,3 +38,6 @@ widgets_list.py
 *.txt
 
 *.json
+
+*.sqlite
+
