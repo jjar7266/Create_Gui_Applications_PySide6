@@ -2,7 +2,7 @@
 Create GUI Applications with Python & Qt6 — Sixth Edition (PySide6)
 Coded along by Jose "Joe" Ruiz
 Chapter 5 - Model View Controller
-Page 332
+Page 334
 
 5.6 Querying SQL databases with Qt models
 
