@@ -91,7 +91,7 @@ class Worker(QRunnable):
 
         else:
             self.signals.finished.emit()
-            self.signals.result.emit({"n": n, "value": v})
+            self.signals.result.emit({"n": n, "value": v})  #type: ignore
 
 
 
