@@ -1,0 +1,164 @@
+"""
+Create GUI Applications with Python & Qt6 — Sixth Edition (PySide6)
+Coded along by Jose "Joe" Ruiz
+Chapter 7 - Concurrent Execution
+Page 448
+
+7.3 - QRunnable examples
+
+QRunnable Multi-Worker Progress Reset on Completion
+
+for example the following will only remove the entries
+when all progress bars reach 100
+
+qrunnable_progress_many_2.py
+"""
+
+# Import modules
+import random
+import sys
+import time
+import uuid
+
+from PySide6.QtCore import (
+    QObject,
+    QRunnable,
+    QThreadPool,
+    QTimer,
+    Signal,
+    Slot,
+)
+from PySide6.QtWidgets import (
+    QApplication,
+    QLabel,
+    QMainWindow,
+    QProgressBar,
+    QPushButton,
+    QVBoxLayout,
+    QWidget,
+)
+
+
+
+class WorkerSignals(QObject):
+    """
+    Defines the signals available from a running worker thread.
+
+    progress
+        int progress complete, from 0-100
+    """
+
+    progress = Signal(str, int)
+    finished = Signal(str)
+
+
+
+class Worker(QRunnable):
+    """
+    Worker thread
+
+    Inherits from QRunnable to handle worker thread setup, signals
+    and wrap-up.
+    """
+
+    def __init__(self):
+        super().__init__()
+        self.job_id = uuid.uuid4().hex
+        self.signals = WorkerSignals()
+
+    @Slot()
+    def run(self):
+        total_n = 1000
+        delay = random.random() / 100  # Random delay value.
+        for n in range(total_n):
+            progress_pc = int(100 * float(n + 1) / total_n)
+            self.signals.progress.emit(self.job_id, progress_pc)
+            time.sleep(delay)
+
+        self.signals.finished.emit(self.job_id)
+
+
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+
+        layout = QVBoxLayout()
+
+        self.progress = QProgressBar()
+
+        button = QPushButton("START IT UP")
+        button.pressed.connect(self.execute)
+
+        self.status = QLabel("0 workers")
+
+        layout.addWidget(self.progress)
+        layout.addWidget(button)
+        layout.addWidget(self.status)
+
+        w = QWidget()
+        w.setLayout(layout)
+
+        # Dictionary holds the progress of current workiers.
+        self.worker_progress = {}
+
+        self.setCentralWidget(w)
+
+        self.threadpool = QThreadPool()
+        thread_n = self.threadpool.maxThreadCount()
+        print(f"Threadpool with maximum {thread_n} threads")
+
+        self.timer = QTimer()
+        self.timer.setInterval(100)
+        self.timer.timeout.connect(self.refresh_progress)
+        self.timer.start()
+
+
+    def execute(self):
+        worker = Worker()
+        worker.signals.progress.connect(self.update_progress)
+        worker.signals.finished.connect(self.cleanup)
+
+        # Execute
+        self.threadpool.start(worker)
+
+
+    def cleanup(self, job_id):
+        if all(v == 100 for v in self.worker_progress.values()):
+            self.worker_progress.clear()  # Empty the dict.
+
+            # Update the progress bar if we've removed a value.
+            self.refresh_progress()
+
+
+    def update_progress(self, job_id, progress):
+        self.worker_progress[job_id] = progress
+
+
+    def calculate_progress(self):
+        if not self.worker_progress:
+            return 0
+
+        progress = sum(
+            v for v in self.worker_progress.values()
+        ) / len(self.worker_progress)
+        return int(progress)
+
+
+    def refresh_progress(self):
+        # Calculate total progress.
+        print(self.worker_progress)
+        progress = self.calculate_progress()
+        self.progress.setValue(progress)
+        n_workers = len(self.worker_progress)
+        self.status.setText(f"{n_workers} workers")
+
+
+app = QApplication(sys.argv)
+window = MainWindow()
+window.show()
+app.exec()
+
+
+
+
