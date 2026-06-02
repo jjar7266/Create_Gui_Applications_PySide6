@@ -58,7 +58,7 @@ class WorkerSignals(QObject):
     Supported signals are:
 
     finished: No data
-    resule: dict
+    result: dict
     """
 
     result = Signal(dict)  # Send back the output as dictionary.
