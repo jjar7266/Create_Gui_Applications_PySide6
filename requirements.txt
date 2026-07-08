@@ -1,3 +1,4 @@
+altgraph==0.17.5
 certifi==2026.5.20
 charset-normalizer==3.4.7
 colorama==0.4.6
@@ -11,14 +12,19 @@ numpy==2.4.4
 packaging==26.2
 pandas==3.0.3
 pathlib==1.0.1
+pefile==2024.8.26
 pillow==12.3.0
+pyinstaller==6.21.0
+pyinstaller-hooks-contrib==2026.6
 pyparsing==3.3.2
 pyqtgraph==0.14.0
 pyside6==6.10.2
 pyside6-addons==6.10.2
 pyside6-essentials==6.10.2
 python-dateutil==2.9.0.post0
+pywin32-ctypes==0.2.3
 requests==2.34.2
+setuptools==83.0.0
 shiboken6==6.10.2
 six==1.17.0
 tzdata==2026.2
