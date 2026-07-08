@@ -6,7 +6,12 @@ Page 625
 
 10.1 - Packaging with PyInstaller
 
+PyInstaller multi-icon layout example with Windows AppUserModelID
 
+This example is designed to run correctly *after* packaging with PyInstaller.
+Running it directly from VSCode may cause issues due to the Windows
+AppUserModelID call, which relies on the packaged executable context.
+Icons are loaded from the 'icons' directory using relative paths.
 
 app.py
 """
