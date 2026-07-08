@@ -41,3 +41,6 @@ widgets_list.py
 
 *.sqlite
 
+# Logs and temp files
+*.log
+*.tmp
