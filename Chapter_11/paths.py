@@ -19,7 +19,7 @@ class Paths:
     base = Path(__file__).parent
     ui_files = base / "ui"
     images   = base / "images"
-    icons    = images / "icons"
+    icons    = base / "icons"
     data     = base / "data"
 
     # File loaders.
