@@ -311,7 +311,7 @@ class MainWindow(QMainWindow):
             for y in range(0, LEVELS[-1][1]):
                 c = self.grid.itemAtPosition(y, x)
                 if c:
-                    c.widget().close()
+                    c.widget().close()                                         # type: ignore
                     self.grid.removeItem(c)
 
         # Force layout to recalculate its geometry
@@ -346,8 +346,8 @@ class MainWindow(QMainWindow):
         # Clear all mine positions
         for x in range(0, self.b_size):
             for y in range(0, self.b_size):
-                w = self.grid.itemAtPosition(y, x).widget()
-                w.reset()
+                w = self.grid.itemAtPosition(y, x).widget()                    # type: ignore
+                w.reset()                                                      # type: ignore
 
 
     def _reset_add_mines(self):
@@ -359,8 +359,8 @@ class MainWindow(QMainWindow):
                 random.randint(0, self.b_size - 1),
             )
             if (x, y) not in positions:
-                w = self.grid.itemAtPosition(y, x).widget()
-                w.is_mine = True
+                w = self.grid.itemAtPosition(y, x).widget()                    # type: ignore
+                w.is_mine = True                                               # type: ignore
                 positions.append((x, y))
 
         # Calculate end-game condition
@@ -378,8 +378,8 @@ class MainWindow(QMainWindow):
         # Add adjacencies to the positions
         for x in range(0, self.b_size):
             for y in range(0, self.b_size):
-                w = self.grid.itemAtPosition(y, x).widget()
-                w.adjacent_n = get_adjacency_n(x, y)
+                w = self.grid.itemAtPosition(y, x).widget()                    # type: ignore
+                w.adjacent_n = get_adjacency_n(x, y)                           # type: ignore
 
 
     def _reset_add_starting_marker(self):
@@ -393,12 +393,12 @@ class MainWindow(QMainWindow):
                 random.randint(0, self.b_size - 1),
                 random.randint(0, self.b_size - 1),
             )
-            w = self.grid.itemAtPosition(y, x).widget()
+            w = self.grid.itemAtPosition(y, x).widget()                        # type: ignore
             # We don't want to start on a mine.
-            if not w.is_mine:
-                w.is_start = True
-                w.is_revealed = True
-                w.update()
+            if not w.is_mine:                                                  # type: ignore
+                w.is_start = True                                              # type: ignore
+                w.is_revealed = True                                           # type: ignore
+                w.update()                                                     # type: ignore
 
                 # Reveal all positions around this,
                 # if they are not mines either.
@@ -418,7 +418,7 @@ class MainWindow(QMainWindow):
             for yi in range(max(0, y - 1), min(y + 2, self.b_size)):
                 if not (xi == x and yi == y):
                     positions.append(
-                        self.grid.itemAtPosition(yi, xi).widget()
+                        self.grid.itemAtPosition(yi, xi).widget()              # type: ignore
                     )
 
         return positions
@@ -438,8 +438,8 @@ class MainWindow(QMainWindow):
     def reveal_map(self):
         for x in range(0, self.b_size):
             for y in range(0, self.b_size):
-                w = self.grid.itemAtPosition(y, x).widget()
-                w.reveal(False)
+                w = self.grid.itemAtPosition(y, x).widget()                    # type: ignore
+                w.reveal(False)                                                # type: ignore
 
 
     def expand_reveal(self, x, y):
