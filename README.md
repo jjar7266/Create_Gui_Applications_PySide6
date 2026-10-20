@@ -65,3 +65,25 @@ If you find this helpful and want to support my work:
 <a href="https://buymeacoffee.com/jjar7266" target="_blank">
   <img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174">
 </a>
+---
+
+# ⚠️ Disclaimer
+
+This repository is an independent educational project created while studying:
+
+**Create GUI Applications with Python & Qt6 — Sixth Edition**
+by **Martin Fitzpatrick**.
+
+All code in this repository was written by **Jose "Joe" Ruiz** while working
+through the book chapter by chapter and applying the concepts presented by the
+author.
+
+This repository does not redistribute, reproduce, or include copyrighted book
+content beyond what is necessary for educational reference. The source code
+contained here represents personal implementations, experiments, notes, and
+learning exercises created during the study process.
+
+The book, its text, diagrams, and other original materials remain the property
+of their respective copyright holders.
+
+---
